@@ -10,6 +10,6 @@ on:
 jobs:
 
   bump-version:
-    uses: diamnet/actions/.github/workflows/rust-bump-version.yml@main
+    uses: diamcircle/actions/.github/workflows/rust-bump-version.yml@main
     with:
       version: ${{ inputs.version }}

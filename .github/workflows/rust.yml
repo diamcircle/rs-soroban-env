@@ -52,7 +52,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - uses: diamnet/actions/rust-check-git-rev-deps@main
+    - uses: diamcircle/actions/rust-check-git-rev-deps@main
 
   rust-analyzer-compat:
     runs-on: ubuntu-latest
@@ -98,7 +98,7 @@ jobs:
     runs-on: ${{ matrix.sys.os }}
     steps:
     - uses: actions/checkout@v3
-    - uses: diamnet/actions/rust-cache@main
+    - uses: diamcircle/actions/rust-cache@main
     - name: Use the minimum supported Rust version
       if: matrix.rust == 'msrv'
       run: |
@@ -125,7 +125,7 @@ jobs:
           target: wasm32-unknown-unknown
         - os: ubuntu-latest
           target: x86_64-unknown-linux-gnu
-    uses: diamnet/actions/.github/workflows/rust-publish-dry-run.yml@main
+    uses: diamcircle/actions/.github/workflows/rust-publish-dry-run.yml@main
     with:
       runs-on: ${{ matrix.sys.os }}
       target: ${{ matrix.sys.target }}
