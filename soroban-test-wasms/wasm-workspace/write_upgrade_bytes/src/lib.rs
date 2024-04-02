@@ -8,10 +8,10 @@ pub(crate) const BALANCE_TTL_THRESHOLD: u32 = EXTEND_AMOUNT;
 pub struct WriteBytesContract;
 
 /*
-This contract is used by a stellar core test case to do a Soroban ConfigSetting upgrade.
-A copy of this contract also exists in the scripts directory of stellar-core, which is used
+This contract is used by a diamnet core test case to do a Soroban ConfigSetting upgrade.
+A copy of this contract also exists in the scripts directory of diamnet-core, which is used
 by a python script to execute the upgrade. If there's an easy way for the python script to use
-this contract in env, the one in stellar-core should be deleted.
+this contract in env, the one in diamnet-core should be deleted.
 */
 #[contractimpl]
 impl WriteBytesContract {

@@ -5,7 +5,7 @@ use crate::{
     builtin_contracts::{
         base_types::{Address, BytesN},
         contract_error::ContractError,
-        stellar_asset_contract::{
+        diamnet_asset_contract::{
             asset_info::{read_asset, read_asset_info},
             public_types::AssetInfo,
             storage_types::DataKey,

@@ -1,5 +1,5 @@
 use crate::{
-    builtin_contracts::stellar_asset_contract::{
+    builtin_contracts::diamnet_asset_contract::{
         public_types::AssetInfo, storage_types::InstanceDataKey,
     },
     host::Host,
@@ -34,8 +34,8 @@ pub(crate) fn has_asset_info(e: &Host) -> Result<bool, HostError> {
 }
 
 pub(crate) fn validate_asset(host: &Host, asset: &Asset) -> Result<(), HostError> {
-    // This reimplements the Stellar core `isAssetValid` function:
-    // https://github.com/stellar/stellar-core/blob/372b4270166e7aad4b741500335b5394965b14a0/src/util/types.cpp#L147
+    // This reimplements the Diamnet core `isAssetValid` function:
+    // https://github.com/diamcircle/diamnet-core/blob/372b4270166e7aad4b741500335b5394965b14a0/src/util/types.cpp#L147
     let validate_asset_code = |code: &[u8]| {
         let mut had_zero = false;
         let mut non_zero_chars = 0;

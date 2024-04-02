@@ -89,7 +89,7 @@
 //!
 //! As described above, `AuthorizedInvocation`s define the trees of invocations
 //! that are authorized by some `Address`. But what is an Address? Concretely it
-//! is either a Stellar `AccountID` or the `Hash` identity of some contract. But
+//! is either a Diamnet `AccountID` or the `Hash` identity of some contract. But
 //! _conceptually_ the Address used to authorize an invocation may be one of 4
 //! different types.
 //!
@@ -103,12 +103,12 @@
 //!      calling `authorize_as_curr_contract`, passing a vector of the
 //!      Val-encoded type `InvokerContractAuthEntry`.
 //!
-//!   2. The address of a Stellar classic account, identified by `AccountID`,
+//!   2. The address of a Diamnet classic account, identified by `AccountID`,
 //!      that must supply `SorobanAddressCredentials` for any
 //!      `AuthorizedInvocation` it authorizes, satisfying the account's classic
 //!      multisig authorization to its medium threshold.
 //!
-//!   3. The address of a Stellar classic account that happens to be the
+//!   3. The address of a Diamnet classic account that happens to be the
 //!      _transaction source account_. In this case we assume the transaction
 //!      signatures already met the requirements of the account before the
 //!      Soroban host was even instantiated, and so the `AuthorizedInvocation`
@@ -1293,7 +1293,7 @@ impl AuthorizationManager {
             // `push_create_contract_host_fn_frame`) functions instead to push
             // the frame with the required info.
             Frame::HostFunction(_) => return self.snapshot(host),
-            Frame::StellarAssetContract(id, fn_name, ..) => (id.metered_clone(host)?, *fn_name),
+            Frame::DiamnetAssetContract(id, fn_name, ..) => (id.metered_clone(host)?, *fn_name),
             #[cfg(any(test, feature = "testutils"))]
             Frame::TestContract(tc) => (tc.id.metered_clone(host)?, tc.func),
         };

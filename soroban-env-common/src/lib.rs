@@ -16,7 +16,7 @@
 //!
 //! The crate additionally contains functions for interconversion between the
 //! [Val] type and XDR types, and re-exports the XDR definitions from
-//! [stellar_xdr] under the module [xdr].
+//! [diamnet_xdr] under the module [xdr].
 
 #[allow(unused_macros)]
 #[cfg(all(not(target_family = "wasm"), feature = "tracy"))]
@@ -46,14 +46,14 @@ pub struct Version<'a> {
     pub pkg: &'a str,
     pub rev: &'a str,
     pub interface: u64,
-    pub xdr: stellar_xdr::Version<'a>,
+    pub xdr: diamnet_xdr::Version<'a>,
 }
 
 pub const VERSION: Version = Version {
     pkg: env!("CARGO_PKG_VERSION"),
     rev: env!("GIT_REVISION"),
     interface: meta::INTERFACE_VERSION,
-    xdr: stellar_xdr::VERSION,
+    xdr: diamnet_xdr::VERSION,
 };
 
 mod wrapper_macros;
@@ -104,9 +104,9 @@ pub use storage_type::StorageType;
 
 // Re-export the XDR definitions of a specific version -- curr or next -- of the xdr crate.
 #[cfg(not(feature = "next"))]
-pub use stellar_xdr::curr as xdr;
+pub use diamnet_xdr::curr as xdr;
 #[cfg(feature = "next")]
-pub use stellar_xdr::next as xdr;
+pub use diamnet_xdr::next as xdr;
 
 // Val is the 64-bit transparent type.
 pub use val::{ConversionError, Tag, Val};

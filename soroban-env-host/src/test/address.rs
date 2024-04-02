@@ -22,7 +22,7 @@ fn string_to_bytes_object(host: &Host, s: &str) -> Val {
 }
 
 // Example values are taken from
-// https://github.com/stellar/stellar-protocol/blob/master/ecosystem/sep-0023.md
+// https://github.com/diamcircle/diamnet-protocol/blob/master/ecosystem/sep-0023.md
 
 #[test]
 fn test_account_address_conversions() {

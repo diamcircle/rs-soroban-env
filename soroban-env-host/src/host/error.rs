@@ -40,7 +40,7 @@ impl Into<Error> for HostError {
 impl DebugInfo {
     fn write_events(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         // TODO: maybe make this something users can adjust?
-        // https://github.com/stellar/rs-soroban-env/issues/1288
+        // https://github.com/diamcircle/rs-soroban-env/issues/1288
         const MAX_EVENTS: usize = 25;
         let mut wrote_heading = false;
         for (i, e) in self.events.0.iter().rev().take(MAX_EVENTS).enumerate() {

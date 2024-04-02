@@ -75,11 +75,11 @@ impl InvokerContractAuthEntry {
                     ContractExecutable::Wasm(b) => {
                         host.hash_from_bytesobj_input("wasm_ref", b.as_object())?
                     }
-                    ContractExecutable::StellarAsset => {
+                    ContractExecutable::DiamnetAsset => {
                         return Err(host.err(
                             ScErrorType::Auth,
                             ScErrorCode::InternalError,
-                            "unexpected authorized StellarAsset contract creation",
+                            "unexpected authorized DiamnetAsset contract creation",
                             &[],
                         ));
                     }

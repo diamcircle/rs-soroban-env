@@ -7,13 +7,13 @@ use crate::{
 };
 use soroban_builtin_sdk_macros::contracttype;
 use std::fmt::Write;
-use stellar_strkey::ed25519;
+use diamnet_strkey::ed25519;
 
 const METADATA_KEY: &str = "METADATA";
 
 #[derive(Clone)]
 #[contracttype]
-pub(crate) struct StellarAssetContractMetadata {
+pub(crate) struct DiamnetAssetContractMetadata {
     pub decimal: u32,
     pub name: String,
     pub symbol: String,
@@ -174,7 +174,7 @@ pub(crate) fn set_metadata(e: &Host) -> Result<(), HostError> {
         }
     };
 
-    let metadata = StellarAssetContractMetadata {
+    let metadata = DiamnetAssetContractMetadata {
         decimal: DECIMAL,
         name: name_and_symbol.0,
         symbol: name_and_symbol.1,
@@ -191,7 +191,7 @@ pub(crate) fn set_metadata(e: &Host) -> Result<(), HostError> {
 
 pub(crate) fn read_name(e: &Host) -> Result<String, HostError> {
     let key = SymbolSmall::try_from_str(METADATA_KEY)?;
-    let metadata: StellarAssetContractMetadata = e
+    let metadata: DiamnetAssetContractMetadata = e
         .get_contract_data(key.try_into_val(e)?, StorageType::Instance)?
         .try_into_val(e)?;
     Ok(metadata.name)
@@ -199,7 +199,7 @@ pub(crate) fn read_name(e: &Host) -> Result<String, HostError> {
 
 pub(crate) fn read_symbol(e: &Host) -> Result<String, HostError> {
     let key = SymbolSmall::try_from_str(METADATA_KEY)?;
-    let metadata: StellarAssetContractMetadata = e
+    let metadata: DiamnetAssetContractMetadata = e
         .get_contract_data(key.try_into_val(e)?, StorageType::Instance)?
         .try_into_val(e)?;
     Ok(metadata.symbol)

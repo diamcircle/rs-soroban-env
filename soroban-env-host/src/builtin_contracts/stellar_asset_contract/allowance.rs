@@ -2,7 +2,7 @@ use crate::{
     builtin_contracts::{
         base_types::Address,
         contract_error::ContractError,
-        stellar_asset_contract::storage_types::{AllowanceDataKey, DataKey},
+        diamnet_asset_contract::storage_types::{AllowanceDataKey, DataKey},
     },
     err,
     host::{metered_clone::MeteredClone, Host},

@@ -1,9 +1,9 @@
 [package]
 name = "soroban-simulation"
 description = "Soroban host invocation simulations."
-homepage = "https://github.com/stellar/rs-soroban-env"
-repository = "https://github.com/stellar/rs-soroban-env"
-authors = ["Stellar Development Foundation <info@stellar.org>"]
+homepage = "https://github.com/diamcircle/rs-soroban-env"
+repository = "https://github.com/diamcircle/rs-soroban-env"
+authors = ["Diamnet Development Foundation <info@diamnet.org>"]
 license = "Apache-2.0"
 version.workspace = true
 readme = "../README.md"

@@ -45,7 +45,7 @@
 //! components or non-canonical encodings.
 //!
 //! Since Soroban is a new implementation based on the dalek libraries, and
-//! because we wish to also interoperate with stellar-core which is based on the
+//! because we wish to also interoperate with diamnet-core which is based on the
 //! libsodium library, we actually take the opposite position from ZIP-215:
 //!
 //!   - reject all small-order points (though accept mixed-order)
@@ -53,9 +53,9 @@
 //!   - verify without the cofactor in the verification equation
 //!
 //! This is the default behaviour in libsodium (at least after version 1.0.16-18
-//! which changed the rules, which we use in stellar-core) as well as dalek's
+//! which changed the rules, which we use in diamnet-core) as well as dalek's
 //! `verify_strict` function. We test dalek in this file and have a
-//! corresponding set of tests with the same test vectors in stellar-core to
+//! corresponding set of tests with the same test vectors in diamnet-core to
 //! confirm identical behaviour with libsodium.
 
 use ed25519_dalek::{Signature, VerifyingKey, PUBLIC_KEY_LENGTH, SIGNATURE_LENGTH};

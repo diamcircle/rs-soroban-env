@@ -9,6 +9,6 @@ pub(crate) mod public_types;
 mod storage_types;
 
 #[cfg(test)]
-pub(crate) mod test_stellar_asset_contract;
+pub(crate) mod test_diamnet_asset_contract;
 
-pub(crate) use contract::StellarAssetContract;
+pub(crate) use contract::DiamnetAssetContract;

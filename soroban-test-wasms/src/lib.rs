@@ -1,6 +1,6 @@
 //! This crate bundles together a bunch of pre-compiled WASM binaries as
 //! constants that can be used elsewhere in end-to-end tests of the host crate,
-//! stellar-core, or other embeddings that need to have some well-formed and
+//! diamnet-core, or other embeddings that need to have some well-formed and
 //! meaningful WASM inputs to draw on.
 //!
 //! They are generated in (and then here copied out of) the embedded workspace

@@ -163,9 +163,9 @@ pub struct Storage {
 // Notes on metering: all storage operations: `put`, `get`, `del`, `has` are
 // covered by the underlying [MeteredOrdMap] and the [Footprint]'s own map.
 impl Storage {
-    /// Only a subset of Stellar's XDR ledger key or entry types are supported
+    /// Only a subset of Diamnet's XDR ledger key or entry types are supported
     /// by Soroban: accounts, trustlines, contract code and data. The rest are
-    /// never used by stellar-core when interacting with the Soroban host, nor
+    /// never used by diamnet-core when interacting with the Soroban host, nor
     /// does the Soroban host ever generate any. Therefore the storage system
     /// will reject them with [ScErrorCode::InternalError] if they ever occur.
     pub fn check_supported_ledger_entry_type(le: &LedgerEntry) -> Result<(), HostError> {
@@ -177,9 +177,9 @@ impl Storage {
         }
     }
 
-    /// Only a subset of Stellar's XDR ledger key or entry types are supported
+    /// Only a subset of Diamnet's XDR ledger key or entry types are supported
     /// by Soroban: accounts, trustlines, contract code and data. The rest are
-    /// never used by stellar-core when interacting with the Soroban host, nor
+    /// never used by diamnet-core when interacting with the Soroban host, nor
     /// does the Soroban host ever generate any. Therefore the storage system
     /// will reject them with [ScErrorCode::InternalError] if they ever occur.
     pub fn check_supported_ledger_key_type(lk: &LedgerKey) -> Result<(), HostError> {

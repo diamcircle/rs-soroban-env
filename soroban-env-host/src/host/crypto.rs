@@ -282,8 +282,8 @@ pub(crate) fn unbias_prng_seed(
     //
     // Note: salt is a "public random value", intended to be statistically
     // similar to a 32-byte draw on /dev/random but done in a transparent and
-    // reproducible way. In this case we use the Stellar Public Network ID,
-    // `sha256("Public Global Stellar Network ; September 2015")`.
+    // reproducible way. In this case we use the Diamnet Public Network ID,
+    // `sha256("Public Global Diamnet Network ; September 2015")`.
     //
     // This number as a bitstring has 137 zeroes and 119 ones, which is within
     // the range we get when taking 32-byte samples from /dev/random (feel free

@@ -23,13 +23,13 @@ use std::ops::RangeInclusive;
 ///     roughly "each transaction in a block of transactions" so that
 ///     transactions from different submitters cannot guess one another's seeds.
 ///     It is the embedder's responsibility to set this to something hard to
-///     predict. In the stellar-core embedding, S is set to the combination of
+///     predict. In the diamnet-core embedding, S is set to the combination of
 ///     the txset hash and the apply-order _position_ of the transaction in the
 ///     txset, which is itself defined in terms of an xor of each transaction
 ///     hash and the previous ledger hash. While it is theoretically possible
 ///     for a validator to guess or influence this, being able to do so also
 ///     grants validators the ability to front-run the orderbook and is
-///     therefore already an attack vector for the whole stellar network's
+///     therefore already an attack vector for the whole diamnet network's
 ///     financial integrity. In other words: reusing it here doesn't make
 ///     anything worse, we're already obliged to make transaction apply-order
 ///     hard to guess or control.

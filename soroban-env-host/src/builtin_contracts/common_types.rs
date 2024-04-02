@@ -6,7 +6,7 @@ use soroban_builtin_sdk_macros::contracttype;
 #[contracttype]
 pub(crate) enum ContractExecutable {
     Wasm(BytesN<32>),
-    StellarAsset,
+    DiamnetAsset,
 }
 
 impl ContractExecutable {
@@ -15,7 +15,7 @@ impl ContractExecutable {
             xdr::ContractExecutable::Wasm(wasm_hash) => Ok(ContractExecutable::Wasm(
                 BytesN::<32>::from_slice(host, &wasm_hash.0)?,
             )),
-            xdr::ContractExecutable::StellarAsset => Ok(ContractExecutable::StellarAsset),
+            xdr::ContractExecutable::DiamnetAsset => Ok(ContractExecutable::DiamnetAsset),
         }
     }
 }

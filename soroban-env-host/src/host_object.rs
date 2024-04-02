@@ -267,7 +267,7 @@ impl MemHostObjectType for xdr::ScSymbol {
 // pointers if they want -- the lack of translation is not exactly making the
 // security of native testing worse than it already is. But it does reduce the
 // fidelity of VM-mode simulation in native testing mode. See
-// https://github.com/stellar/rs-soroban-env/issues/1286 for a planned fix.
+// https://github.com/diamcircle/rs-soroban-env/issues/1286 for a planned fix.
 
 pub fn is_relative_object_handle(handle: u32) -> bool {
     handle & 1 == 0

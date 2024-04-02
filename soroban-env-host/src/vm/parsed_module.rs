@@ -227,10 +227,10 @@ impl ParsedModule {
             // with similarly finalized (zero) prerelease numbers.
             //
             // Note that we only enable this check if the "next" feature isn't enabled
-            // because a "next" stellar-core can still run a "curr" test using non-finalized
+            // because a "next" diamnet-core can still run a "curr" test using non-finalized
             // test Wasms. The "next" feature isn't safe for production and is meant to
             // simulate the protocol version after the one currently supported in
-            // stellar-core, so bypassing this check for "next" is safe.
+            // diamnet-core, so bypassing this check for "next" is safe.
             #[cfg(not(feature = "next"))]
             if got_pre != 0 {
                 return Err(err!(
@@ -242,7 +242,7 @@ impl ParsedModule {
             }
         } else if got_proto == want_proto {
             // Relax this check as well for the "next" feature to allow for flexibility while testing.
-            // stellar-core can pass in an older protocol version, in which case the pre-release version
+            // diamnet-core can pass in an older protocol version, in which case the pre-release version
             // will not match up with the "next" feature (The "next" pre-release version is always 1).
             #[cfg(not(feature = "next"))]
             {

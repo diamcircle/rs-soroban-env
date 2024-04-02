@@ -7,12 +7,12 @@ use crate::{
     Env, Host, HostError, Symbol, TryFromVal, TryIntoVal, DEFAULT_XDR_RW_LIMITS,
 };
 
-pub(crate) struct TestStellarAssetContract<'a> {
+pub(crate) struct TestDiamnetAssetContract<'a> {
     pub(crate) address: Address,
     host: &'a Host,
 }
 
-impl<'a> TestStellarAssetContract<'a> {
+impl<'a> TestDiamnetAssetContract<'a> {
     pub(crate) fn new_from_asset(host: &'a Host, asset: Asset) -> Result<Self, HostError> {
         use crate::EnvBase;
         let mut asset_bytes_vec = Limited::new(vec![], DEFAULT_XDR_RW_LIMITS);

@@ -558,7 +558,7 @@ mod test_without_string {
 
     #[test]
     fn test_roundtrip() {
-        let input = "stellar";
+        let input = "diamnet";
         let sym = SymbolSmall::try_from_str(input).unwrap();
         let sym_str = SymbolStr::from(sym);
         let s: &str = sym_str.as_ref();
@@ -620,7 +620,7 @@ mod test_with_string {
 
     #[test]
     fn test_roundtrip() {
-        let input = "stellar";
+        let input = "diamnet";
         let sym = SymbolSmall::try_from_str(input).unwrap();
         let s: String = sym.to_string();
         assert_eq!(input, &s);

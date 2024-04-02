@@ -9,8 +9,8 @@
 // and high component. The low component is a pre-release version which should
 // be zero any time you make a real release, and the high component is the
 // ledger version / protocol version (the two terms are used interchangably in
-// the stellar codebase), which should both match the major release version of
-// soroban and the major release version of stellar-core that it's embedded
+// the diamnet codebase), which should both match the major release version of
+// soroban and the major release version of diamnet-core that it's embedded
 // within.
 //
 // Protocol numbers will be checked for ordered compatibility (a host will only

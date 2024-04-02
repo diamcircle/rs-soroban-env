@@ -4,7 +4,7 @@ use crate::{
     builtin_contracts::{
         base_types::{Address, BytesN, String},
         contract_error::ContractError,
-        stellar_asset_contract::{
+        diamnet_asset_contract::{
             admin::{read_administrator, write_administrator},
             allowance::{read_allowance, spend_allowance, write_allowance},
             asset_info::{has_asset_info, read_asset_info, validate_asset, write_asset_info},
@@ -26,7 +26,7 @@ use crate::{
 
 use soroban_builtin_sdk_macros::contractimpl;
 
-pub(crate) struct StellarAssetContract;
+pub(crate) struct DiamnetAssetContract;
 
 fn check_nonnegative_amount(e: &Host, amount: i128) -> Result<(), HostError> {
     if amount < 0 {
@@ -76,13 +76,13 @@ fn check_not_issuer(e: &Host, addr: &Address) -> Result<(), HostError> {
 
 #[contractimpl]
 // Metering: covered by components.
-impl StellarAssetContract {
+impl DiamnetAssetContract {
     pub(crate) fn init_asset(e: &Host, asset_bytes: BytesObject) -> Result<(), HostError> {
         let _span = tracy_span!("SAC init_asset");
         if has_asset_info(e)? {
             return Err(e.error(
                 ContractError::AlreadyInitializedError.into(),
-                "StellarAssetContract has been already initialized",
+                "DiamnetAssetContract has been already initialized",
                 &[],
             ));
         }
@@ -102,7 +102,7 @@ impl StellarAssetContract {
         match asset {
             Asset::Native => {
                 write_asset_info(e, AssetInfo::Native)?;
-                //No admin for the stellar asset contract
+                //No admin for the diamnet asset contract
             }
             Asset::CreditAlphanum4(asset4) => {
                 write_administrator(e, Address::from_account(e, &asset4.issuer)?)?;

@@ -117,7 +117,7 @@ pub(crate) enum Frame {
         relative_objects: Vec<Object>,
     },
     HostFunction(HostFunctionType),
-    StellarAssetContract(Hash, Symbol, Vec<Val>, ScContractInstance),
+    DiamnetAssetContract(Hash, Symbol, Vec<Val>, ScContractInstance),
     #[cfg(any(test, feature = "testutils"))]
     TestContract(TestContractFrame),
 }
@@ -127,7 +127,7 @@ impl Frame {
         match self {
             Frame::ContractVM { vm, .. } => Some(&vm.contract_id),
             Frame::HostFunction(_) => None,
-            Frame::StellarAssetContract(id, ..) => Some(id),
+            Frame::DiamnetAssetContract(id, ..) => Some(id),
             #[cfg(any(test, feature = "testutils"))]
             Frame::TestContract(tc) => Some(&tc.id),
         }
@@ -137,7 +137,7 @@ impl Frame {
         match self {
             Frame::ContractVM { instance, .. } => Some(instance),
             Frame::HostFunction(_) => None,
-            Frame::StellarAssetContract(_, _, _, instance) => Some(instance),
+            Frame::DiamnetAssetContract(_, _, _, instance) => Some(instance),
             #[cfg(any(test, feature = "testutils"))]
             Frame::TestContract(tc) => Some(&tc.instance),
         }
@@ -660,11 +660,11 @@ impl Host {
                     || vm.invoke_function_raw(self, func, args),
                 )
             }
-            ContractExecutable::StellarAsset => self.with_frame(
-                Frame::StellarAssetContract(id.metered_clone(self)?, *func, args_vec, instance),
+            ContractExecutable::DiamnetAsset => self.with_frame(
+                Frame::DiamnetAssetContract(id.metered_clone(self)?, *func, args_vec, instance),
                 || {
-                    use crate::builtin_contracts::{BuiltinContract, StellarAssetContract};
-                    StellarAssetContract.call(func, self, args)
+                    use crate::builtin_contracts::{BuiltinContract, DiamnetAssetContract};
+                    DiamnetAssetContract.call(func, self, args)
                 },
             ),
         }

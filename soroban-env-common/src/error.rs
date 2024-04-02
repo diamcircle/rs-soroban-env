@@ -343,7 +343,7 @@ mod tests {
     #[test]
     fn error_ord_same_as_scerror() {
         // The impl `Ord for Error` must agree with `Ord for ScError`,
-        // re https://github.com/stellar/rs-soroban-env/issues/743.
+        // re https://github.com/diamcircle/rs-soroban-env/issues/743.
         //
         // This test creates pairs of corresponding ScError/Error values,
         // puts them all into a list, and sorts them with each comparison function,

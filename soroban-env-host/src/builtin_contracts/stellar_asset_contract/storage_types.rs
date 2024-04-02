@@ -27,14 +27,14 @@ pub(crate) struct BalanceValue {
     pub clawback: bool,
 }
 
-/// Keys for the persistent data associated with stellar asset contract users.
+/// Keys for the persistent data associated with diamnet asset contract users.
 #[contracttype]
 pub(crate) enum DataKey {
     Allowance(AllowanceDataKey),
     Balance(Address),
 }
 
-/// Keys for stellar asset contract instance data.
+/// Keys for diamnet asset contract instance data.
 #[contracttype]
 pub(crate) enum InstanceDataKey {
     Admin,

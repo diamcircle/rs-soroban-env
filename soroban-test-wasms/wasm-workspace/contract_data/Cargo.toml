@@ -1,7 +1,7 @@
 [package]
 name = "example_contract_data"
 version = "0.0.0"
-authors = ["Stellar Development Foundation <info@stellar.org>"]
+authors = ["Diamnet Development Foundation <info@diamnet.org>"]
 license = "Apache-2.0"
 edition = "2021"
 rust-version.workspace = true

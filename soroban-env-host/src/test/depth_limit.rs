@@ -24,7 +24,7 @@ fn deep_scval_to_host_val() -> Result<(), HostError> {
 
     let res = host.to_host_val(&ScVal::from(v));
     // NB: this error code is not great, it's a consequence of
-    // bug https://github.com/stellar/rs-soroban-env/issues/1046
+    // bug https://github.com/diamcircle/rs-soroban-env/issues/1046
     // where the TryIntoVal impl in common eats HostErrors
     let code = (ScErrorType::Context, ScErrorCode::ExceededLimit);
     assert!(HostError::result_matches_err(res, code));

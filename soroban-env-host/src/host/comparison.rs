@@ -21,7 +21,7 @@ use super::declared_size::DeclaredSizeForMetering;
 // based on reordering enums: https://github.com/rust-lang/rust/issues/51561
 //
 // Note that these must have the same order as the impl
-// of Ord for ScVal, re https://github.com/stellar/rs-soroban-env/issues/743
+// of Ord for ScVal, re https://github.com/diamcircle/rs-soroban-env/issues/743
 fn host_obj_discriminant(ho: &HostObject) -> usize {
     match ho {
         HostObject::U64(_) => 0,
@@ -495,7 +495,7 @@ mod tests {
         // The HostObject discriminants need to be ordered the same
         // as the ScVal discriminants so that Compare<HostObject>
         // produces the same results as `Ord for ScVal`,
-        // re https://github.com/stellar/rs-soroban-env/issues/743.
+        // re https://github.com/diamcircle/rs-soroban-env/issues/743.
         //
         // This test creates pairs of corresponding ScVal/HostObjects,
         // puts them all into a list, and sorts them 2 ways:

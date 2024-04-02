@@ -29,7 +29,7 @@ mod num;
 mod post_mvp;
 mod prng;
 mod protocol_gate;
-mod stellar_asset_contract;
+mod diamnet_asset_contract;
 mod storage;
 mod str;
 mod symbol;

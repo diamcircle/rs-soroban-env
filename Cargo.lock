@@ -1364,7 +1364,7 @@ dependencies = [
  "soroban-env-macros",
  "soroban-wasmi",
  "static_assertions",
- "stellar-xdr",
+ "diamnet-xdr",
  "tracy-client",
  "wasmparser",
 ]
@@ -1414,8 +1414,8 @@ dependencies = [
  "soroban-test-wasms",
  "soroban-wasmi",
  "static_assertions",
- "stellar-strkey",
- "stellar-xdr",
+ "diamnet-strkey",
+ "diamnet-xdr",
  "tabwriter",
  "textplots",
  "thousands",
@@ -1434,7 +1434,7 @@ dependencies = [
  "quote",
  "serde",
  "serde_json",
- "stellar-xdr",
+ "diamnet-xdr",
  "syn",
 ]
 
@@ -1472,7 +1472,7 @@ version = "20.3.0"
 [[package]]
 name = "soroban-wasmi"
 version = "0.31.1-soroban.20.0.1"
-source = "git+https://github.com/stellar/wasmi?rev=0ed3f3dee30dc41ebe21972399e0a73a41944aa0#0ed3f3dee30dc41ebe21972399e0a73a41944aa0"
+source = "git+https://github.com/diamcircle/wasmi?rev=0ed3f3dee30dc41ebe21972399e0a73a41944aa0#0ed3f3dee30dc41ebe21972399e0a73a41944aa0"
 dependencies = [
  "smallvec",
  "spin",
@@ -1504,7 +1504,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "a2eb9349b6444b326872e140eb1cf5e7c522154d69e7a0ffb0fb81c06b37543f"
 
 [[package]]
-name = "stellar-strkey"
+name = "diamnet-strkey"
 version = "0.0.8"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "12d2bf45e114117ea91d820a846fd1afbe3ba7d717988fee094ce8227a3bf8bd"
@@ -1515,9 +1515,9 @@ dependencies = [
 ]
 
 [[package]]
-name = "stellar-xdr"
+name = "diamnet-xdr"
 version = "20.1.0"
-source = "git+https://github.com/stellar/rs-stellar-xdr?rev=44b7e2d4cdf27a3611663e82828de56c5274cba0#44b7e2d4cdf27a3611663e82828de56c5274cba0"
+source = "git+https://github.com/diamcircle/rs-diamnet-xdr?rev=44b7e2d4cdf27a3611663e82828de56c5274cba0#44b7e2d4cdf27a3611663e82828de56c5274cba0"
 dependencies = [
  "arbitrary",
  "base64 0.13.1",
@@ -1526,7 +1526,7 @@ dependencies = [
  "hex",
  "serde",
  "serde_with",
- "stellar-strkey",
+ "diamnet-strkey",
 ]
 
 [[package]]
@@ -1859,12 +1859,12 @@ dependencies = [
 [[package]]
 name = "wasmi_arena"
 version = "0.4.0"
-source = "git+https://github.com/stellar/wasmi?rev=0ed3f3dee30dc41ebe21972399e0a73a41944aa0#0ed3f3dee30dc41ebe21972399e0a73a41944aa0"
+source = "git+https://github.com/diamcircle/wasmi?rev=0ed3f3dee30dc41ebe21972399e0a73a41944aa0#0ed3f3dee30dc41ebe21972399e0a73a41944aa0"
 
 [[package]]
 name = "wasmi_core"
 version = "0.13.0"
-source = "git+https://github.com/stellar/wasmi?rev=0ed3f3dee30dc41ebe21972399e0a73a41944aa0#0ed3f3dee30dc41ebe21972399e0a73a41944aa0"
+source = "git+https://github.com/diamcircle/wasmi?rev=0ed3f3dee30dc41ebe21972399e0a73a41944aa0#0ed3f3dee30dc41ebe21972399e0a73a41944aa0"
 dependencies = [
  "downcast-rs",
  "libm",

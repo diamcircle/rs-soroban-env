@@ -72,10 +72,10 @@ impl AuthorizationContext {
                     xdr::ContractExecutable::Wasm(wasm_hash) => {
                         BytesN::<32>::from_slice(host, wasm_hash.as_slice())?
                     }
-                    xdr::ContractExecutable::StellarAsset => return Err(host.err(
+                    xdr::ContractExecutable::DiamnetAsset => return Err(host.err(
                         ScErrorType::Auth,
                         ScErrorCode::InvalidInput,
-                        "StellarAsset executable is not allowed when authorizing create_contract host fn",
+                        "DiamnetAsset executable is not allowed when authorizing create_contract host fn",
                         &[],
                     )),
                 };

@@ -1149,7 +1149,7 @@ impl VmCallerEnv for Host {
         _vmcaller: &mut VmCaller<Host>,
     ) -> Result<BytesObject, Self::Error> {
         self.with_ledger_info(|li| {
-            // FIXME: cache this and a few other such IDs: https://github.com/stellar/rs-soroban-env/issues/681
+            // FIXME: cache this and a few other such IDs: https://github.com/diamcircle/rs-soroban-env/issues/681
             self.add_host_object(self.scbytes_from_slice(li.network_id.as_slice())?)
         })
     }
@@ -1159,7 +1159,7 @@ impl VmCallerEnv for Host {
         &self,
         _vmcaller: &mut VmCaller<Host>,
     ) -> Result<AddressObject, HostError> {
-        // FIXME: cache this and a few other such IDs: https://github.com/stellar/rs-soroban-env/issues/681
+        // FIXME: cache this and a few other such IDs: https://github.com/diamcircle/rs-soroban-env/issues/681
         self.add_host_object(ScAddress::Contract(
             self.get_current_contract_id_internal()?,
         ))
@@ -2167,7 +2167,7 @@ impl VmCallerEnv for Host {
     ) -> Result<AddressObject, HostError> {
         let asset: Asset = self.metered_from_xdr_obj(serialized_asset)?;
         let contract_id_preimage = ContractIdPreimage::Asset(asset);
-        let executable = ContractExecutable::StellarAsset;
+        let executable = ContractExecutable::DiamnetAsset;
         let args = CreateContractArgs {
             contract_id_preimage,
             executable,
@@ -2823,7 +2823,7 @@ impl VmCallerEnv for Host {
                         &[],
                     ));
                 }
-                Frame::StellarAssetContract(_, _, args, _) => args,
+                Frame::DiamnetAssetContract(_, _, args, _) => args,
                 #[cfg(any(test, feature = "testutils"))]
                 Frame::TestContract(c) => &c.args,
             };
@@ -2862,13 +2862,13 @@ impl VmCallerEnv for Host {
             let strkey = match addr {
                 ScAddress::Account(acc_id) => {
                     let AccountId(PublicKey::PublicKeyTypeEd25519(Uint256(ed25519))) = acc_id;
-                    let strkey = stellar_strkey::Strkey::PublicKeyEd25519(
-                        stellar_strkey::ed25519::PublicKey(ed25519.metered_clone(self)?),
+                    let strkey = diamnet_strkey::Strkey::PublicKeyEd25519(
+                        diamnet_strkey::ed25519::PublicKey(ed25519.metered_clone(self)?),
                     );
                     strkey
                 }
-                ScAddress::Contract(Hash(h)) => stellar_strkey::Strkey::Contract(
-                    stellar_strkey::Contract(h.metered_clone(self)?),
+                ScAddress::Contract(Hash(h)) => diamnet_strkey::Strkey::Contract(
+                    diamnet_strkey::Contract(h.metered_clone(self)?),
                 ),
             };
             Ok(strkey.to_string())
@@ -2918,7 +2918,7 @@ impl VmCallerEnv for Host {
             // Approximate the decoding cost as two vector allocations for the
             // expected payload length (the strkey library does one extra copy).
             Vec::<u8>::charge_bulk_init_cpy(PAYLOAD_LEN + PAYLOAD_LEN, self)?;
-            let strkey = stellar_strkey::Strkey::from_string(&key_str).map_err(|_| {
+            let strkey = diamnet_strkey::Strkey::from_string(&key_str).map_err(|_| {
                 self.err(
                     ScErrorType::Value,
                     ScErrorCode::InvalidInput,
@@ -2927,11 +2927,11 @@ impl VmCallerEnv for Host {
                 )
             })?;
             match strkey {
-                stellar_strkey::Strkey::PublicKeyEd25519(pk) => Ok(ScAddress::Account(AccountId(
+                diamnet_strkey::Strkey::PublicKeyEd25519(pk) => Ok(ScAddress::Account(AccountId(
                     PublicKey::PublicKeyTypeEd25519(Uint256(pk.0)),
                 ))),
 
-                stellar_strkey::Strkey::Contract(c) => Ok(ScAddress::Contract(Hash(c.0))),
+                diamnet_strkey::Strkey::Contract(c) => Ok(ScAddress::Contract(Hash(c.0))),
                 _ => {
                     return Err(self.err(
                         ScErrorType::Value,
